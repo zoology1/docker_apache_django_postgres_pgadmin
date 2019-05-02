@@ -1,0 +1,39 @@
+version: "3"
+
+services: 
+  postgres:
+    container_name: postgres11_2
+    image: postgres:11.2
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pguser
+      POSTGRES_DB: pgdb
+    user: 1000:100
+  pgadmin4:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 8088:80
+      - 7443:443
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=aaa.bbb@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=aaabbb
+  onsale:
+    build: .
+    image: onsale
+    restart: always
+    container_name: onsale
+    ports:
+      - 9080:80
+      - 9443:443
+      - 9880:9880
+      - 9843:9843
+    volumes:
+      - ./from/source/onsale:/home/myaccount/python/onsale/
+      - ./from/apache2/ssl:/etc/apache2/ssl
