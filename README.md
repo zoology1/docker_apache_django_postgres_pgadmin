@@ -23,12 +23,14 @@
 - $ docker exec -it onsale python /home/myaccount/python/onsale/manage.py collectstatic 
 ### 7. Test your connection
 - change 192.168.0.112 to your server address
--- http://192.168.0.112:9080/ - apache default page(using http)
--- https://192.168.0.112:9443/ - apache default page(using https)
--- http://192.168.0.112:9880/flashsale/ - django test site(using http)
--- https://192.168.0.112:9843/flashsale/ - django test site(using https)
--- http://192.168.0.112:9880/admin/ - django admin site(using http)
--- https://192.168.0.112:9843/admin/ - django admin site(using https)
+```
+http://192.168.0.112:9080/ - apache default page(using http)
+https://192.168.0.112:9443/ - apache default page(using https)
+http://192.168.0.112:9880/flashsale/ - django test site(using http)
+https://192.168.0.112:9843/flashsale/ - django test site(using https)
+http://192.168.0.112:9880/admin/ - django admin site(using http)
+https://192.168.0.112:9843/admin/ - django admin site(using https)
+```
 ### 8.if you want to change ssl certification and key used in django ssl connection.
 - change file name in /from/apache2/default-ssl.conf
 ```
